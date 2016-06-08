@@ -2,7 +2,7 @@
 
 ## 說明
 
-這是我個人對於arm9loaderhax利用方式的進展, 您可以在這查閱相關文件 [here](http://3dbrew.org/wiki/3DS_System_Flaws) 另外我也推荐看看 [in this conference](https://media.ccc.de/v/32c3-7240-console_hacking), 利用了 9.6 以上版本 New3DS arm9loader 的漏洞 , 使得 ARM9 的代碼能夠在開機的時候直接運行.
+這是我個人對於arm9loaderhax利用方式的進展, 您可以在這查閱相關文件 [點我](http://3dbrew.org/wiki/3DS_System_Flaws) 另外我也推荐看看 [這個會議](https://media.ccc.de/v/32c3-7240-console_hacking), 利用了 9.6 以上版本 New3DS arm9loader 的漏洞 , 使得 ARM9 的代碼能夠在開機的時候直接運行.
 
 這個項目在 New 與 OLD 3DS 都已確認運行.
 
