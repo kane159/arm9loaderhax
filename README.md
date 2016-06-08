@@ -1,66 +1,66 @@
 # Arm9LoaderHax for Nintendo 3DS
 
-## Explanation
+## 說明
 
-This is my personal implementation of the arm9loaderhax exploit, documented [here](http://3dbrew.org/wiki/3DS_System_Flaws) and also presented [in this conference](https://media.ccc.de/v/32c3-7240-console_hacking), which provides ARM9 code execution directly at the console boot, exploiting a vulnerability present in 9.6+ version of New3DS arm9loader.
+這是我個人對於arm9loaderhax利用方式的進展, 您可以在這查閱相關文件 [here](http://3dbrew.org/wiki/3DS_System_Flaws) 另外我也推荐看看 [in this conference](https://media.ccc.de/v/32c3-7240-console_hacking), 利用了 9.6 以上版本 New3DS arm9loader 的漏洞 , 使得 ARM9 的代碼能夠在開機的時候直接運行.
 
-It works on both New and OLD 3DS.
+這個項目在 New 與 OLD 3DS 都已確認運行.
 
-This exploit was found by **plutoo** and **yellows8**, i do not own the idea, just the implementation of it.
+這個接入口是由 **plutoo** 與 **yellows8** 發現的 , 我並不擁有這個想法 , 只是對這個項目有些微的進展.
 
-Screen_init was implemented by [**dark-samus** pull request](https://github.com/delebile/arm9loaderhax/pull/9) (thank you!).
+Screen_init 是由 [**dark-samus** pull request](https://github.com/delebile/arm9loaderhax/pull/9) 所研擬的 (萬分感謝!).
 
-## Usage
+## 使用
 
-Once you installed the exploit, it will launch the **arm9loaderhax.bin** file from the root of your SD card directly as the console boots.
+一旦您安裝了這個接入口 , 他將會在您開機的時候運行 SD 卡根目錄下的 **arm9loaderhax.bin** 文件.
 
-If the file is not found, the console will shut down.
+如果找不到這個文件, 主機就會直接切斷電源.
 
 
-## Installation
+## 安裝
 
-After the compilation you'll have three files in the **data_output** directory:
+編譯完成之後在您的 **data_output** 資料夾內會有以下三個檔案:
 
 * arm9loaderhax.3dsx
 * arm9loaderhax.bin
 * arm9loaderhax.pack
 
-The *.pack* file contains all the content that will be installed (in case of a full package, your console-unique data too), and has to be placed in the root of your SD card.
+*.pack* 檔案包含了所有將安裝的數據 (如果只有一個文件的話, 那麼專屬於您主機的數據也將被包含), 必須將這個文件放置於 SD 卡的根目錄.
 
-The *.bin* file is an indipendent payload that can be launched from Brahma2, CakeHax, Arm9LoaderHax itself (mainly for update the exploit), and so on.
-It is the installeing software, once you find your way to launch it, just follow the instruction.
+*.bin* 是個可被 Brahma2, CakeHax, Arm9LoaderHax 本身 (主要是更新接入點), 等等的方式運行的獨立 payload .
+這是一個安裝用的程序, 只要您找到了一個方法可以運行他之後, 您就只需要按照只是運行即可.
 
-The *.3dsx* file is a pre-buildt Brahma2 3dsx that can be launched on consoles with firmware below 9.2 through the Homebrew Launcher.
-It is a loader for the *.bin* file, wich is included in the 3dsx.
+*.3dsx* 是個可在 9.2 以下的固件由 Homebrew Launcher 運行的預先編譯好的 Brahma2 3dsx .
+這是一個 *.bin* 文件的加載器, *.bin*文件已被包含在 3dsx 內.
 
-## Software Update
+## 軟體更新
 
-When some essential parts of the software will be released, you'll be able to update your setup with the installer by using  *.pack* files that i will provide in future releases.
+當有些程序上的優化被釋出的時候, 您將可以使用本安裝器來更新將來所釋出的  *.pack* 檔案.
 
 
-## Setup
-####**Required Files**
-Some files are needed in order to make the setup compilable, be sure to put the following files in the **data_input** folder, you have to find them on your own:
+## 配置
+####**需要的文件**
+有些必要的文件必須被配置好, 請確保以下的文件都被放到了 **data_input** 資料夾內, 你將必須自己去找到他們:
 
 | Name          | Description           | SHA-256  |
 | ------------- |---------------| ------|
-| **new3ds10.firm**| New3DS NATIVE_FIRM from system version 10.2.| d253c1cc0a5ffac6b383dac1827cfb3b2d3d566c6a1a8e5254e389c2950623e5 |
-| **new3ds90.firm**|New3DS NATIVE_FIRM from system version 9.0.|d7be76e1813f398dcea85572d0c058f7954761a1d5ea03b5eb5047ac63ac5d6b |
-|**secret_sector.bin**|The New 3DS secret 0x96 key sector.|    82f2730d2c2da3f30165f987fdccac5cbab24b4e5f65c981cd7be6f438e6d9d3 |
-|**otp.bin**|A dump of your console OTP data from region 0x10012000-0x10012100. Using other console's OTP will result in a brick.|     |
+| **new3ds10.firm**|系統版本 10.2 的 New3DS NATIVE_FIRM.| d253c1cc0a5ffac6b383dac1827cfb3b2d3d566c6a1a8e5254e389c2950623e5 |
+| **new3ds90.firm**|系統版本 9.0 的 New3DS NATIVE_FIRM.|d7be76e1813f398dcea85572d0c058f7954761a1d5ea03b5eb5047ac63ac5d6b |
+|**secret_sector.bin**|New 3DS 的秘密 0x96 秘鑰扇區.|    82f2730d2c2da3f30165f987fdccac5cbab24b4e5f65c981cd7be6f438e6d9d3 |
+|**otp.bin**|從您的機器內區域 0x10012000-0x10012100 所導出的 OTP 數據. 如果使用其他機器的 OTP 會使你的機器變磚.|     |
 
-####**Required Enviroment**
+####**環境需求**
 
 * devkitARM r45
 * libctru (ver. 1.0.0)
 * Python with PyCcrypto (2.7 or 3.x should work)
 * GCC or MinGW (Only needed to compile the buildt-in tool, you can download [a pre-compiled windows build here](https://mega.nz/#!j0RkxLjb!4Am-3yDAR9g4VDxY93pWhXVYNDiylSW1cKJntOLfDWU), place it in **common** folder)
 
-####**Compilation Modes**
+####**編譯選項**
 
-* **make** : This will compile all the files
-* **make hax** : This will skip the 3DSX installer compilation
-* **make stage2_update** : This will generate an updater pack with only the secondary payload, mainly for updating the exploit files.
+* **make** : 本指令會生成所有文件
+* **make hax** : 本指令會跳過 3DSX 安裝器的編譯
+* **make stage2_update** : 本指令只會生成次要的 payload, 主要用來更新接入點文件.
 
 ## Credits
 
