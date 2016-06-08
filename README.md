@@ -28,7 +28,7 @@ Screen_init 是由 [**dark-samus** pull request](https://github.com/delebile/arm
 *.pack* 檔案包含了所有將安裝的數據 (如果只有一個文件的話, 那麼專屬於您主機的數據也將被包含), 必須將這個文件放置於 SD 卡的根目錄.
 
 *.bin* 是個可被 Brahma2, CakeHax, Arm9LoaderHax 本身 (主要是更新接入點), 等等的方式運行的獨立 payload .
-這是一個安裝用的程序, 只要您找到了一個方法可以運行他之後, 您就只需要按照只是運行即可.
+這是一個安裝用的程序, 只要您找到了一個方法可以運行他之後, 您就只需要按照指示運行即可.
 
 *.3dsx* 是個可在 9.2 以下的固件由 Homebrew Launcher 運行的預先編譯好的 Brahma2 3dsx .
 這是一個 *.bin* 文件的加載器, *.bin*文件已被包含在 3dsx 內.
